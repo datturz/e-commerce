@@ -1,0 +1,10 @@
+.about{
+	height:auto;
+	margin-top: 20px;
+	padding: 80px 0 50px 0;
+	background-image:  url(/assets/img/about-shape-2.png),url(/assets/img/about-shape-1.png) ;
+	background-position: right, left top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow: hidden;
+}

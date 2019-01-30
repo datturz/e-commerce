@@ -1,0 +1,49 @@
+
+.jumbotron{
+    height: auto !important;
+    justify-content: center;
+    border-radius: 0%;
+    width: 100%;
+    background-image: url('/assets/img/ucok.jpg');
+    background-repeat: no-repeat;
+    background-size:auto
+}
+.jumbotron p.lead {
+    color: white;
+    font-family:  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    letter-spacing: 0.1px;
+}
+.jumbotron p > span{
+    color: goldenrod;
+}
+.jumbotron h4.broh{
+    color: lightblue;
+   text-align: center;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+#bas{
+   border-radius: 100px;
+}
+#button-addon2{
+    border-radius: 100px;
+    margin-left: -35px;
+    background-color: #D0A97E;
+    font-size: 16px;
+    
+}
+/* .background-image{
+    width: auto;
+    height: auto;
+    padding: 0px;
+    background-position: left;
+    background-size: auto;
+    z-index: auto;
+    
+    box-shadow: #D0A97E;
+    background-repeat: no-repeat;   
+   
+    
+} */
+

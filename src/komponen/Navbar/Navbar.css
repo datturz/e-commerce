@@ -1,0 +1,29 @@
+	/* desktop nav */
+
+  @media (min-width: 992px){
+		.navbar{
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+		font-family: 'Play', sans-serif;
+		}
+	.nav-link {
+	  text-transform: uppercase;
+	  margin-right: 50px;
+	  
+	}
+	.nav-link:hover::after{
+	  content: '';
+	  display: block;
+	  border-bottom: 2px solid white;
+	  width: 80%;
+	  margin: auto;
+	  margin-bottom: -8px;
+	}
+	.jumbotron{
+		
+		height: 320px;
+	  }
+	  .jumbotron .display-4{
+		font-size: 62px;
+		}
+		
+	}
