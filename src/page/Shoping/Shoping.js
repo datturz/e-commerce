@@ -86,6 +86,7 @@ export default class Shoping extends Component {
 
         return (
             <React.Fragment>
+                {console.log(this.state.cart)}
                 <div className="container section">
                     <div className="row">
                         <div className="col">

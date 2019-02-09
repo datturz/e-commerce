@@ -34,7 +34,7 @@ export default class Signup extends Component {
 			.catch((err) => {
 				console.log(err)
 			})
-		this.props.history.push('/')
+		// this.props.history.push('/')
 	}
 	render() {
 		return (
@@ -61,7 +61,8 @@ export default class Signup extends Component {
 																firstname: e.target.value
 															})
 														}}
-													/>
+
+														required />
 												</div>
 												<div className="col-sm-6 form-group">
 													<label>Last Name</label>

@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
 import CartItems from './CartsItems'
-
+import { Link } from 'react-router-dom'
 export default class ShoppingCart extends Component {
-    constructor() {
-        super()
-        this.state = {
-            nampung: []
-        }
-    }
-    getCheckout = (x) => {
-        this.setState({
-            nampung: x.props.checkiOut
-        })
-        console.log(this.state.nampung)
-
-    }
-
     render() {
         return (
             <React.Fragment>
@@ -38,12 +24,14 @@ export default class ShoppingCart extends Component {
                                     if (item.quantity !== 0) {
                                         return <CartItems
                                             key={i}
+                                            id={item.id}
                                             item_num={i + 1}
-                                            item={<img style={{ maxWidth: '50px', maxHeight: '60px' }} src={`/assets/img/${item.product_gambar}`} alt="" />}
+                                            item={item.product_gambar}
                                             name={item.product_name}
                                             quantity={item.quantity}
                                             price={item.product_price}
                                             onRemovess={this.props.onRemoves}
+
                                         />
                                     }
                                     else { return null }
@@ -58,9 +46,11 @@ export default class ShoppingCart extends Component {
                                             <td colSpan="5" style={{ textAlign: 'center' }}>Total: Rp.{this.props.tot}
                                                 <br />
                                                 <br />
-                                                <button type="button" data-dismiss="modal" onClick={this.props.checkiOut} className="btn btn-warning">Proced Checkout</button></td></tr>
+                                                <Link to="/check" className="btn btn-warning" data-dismis='modal'>Proced Checkout</Link></td></tr>
+
                                     }
                                 </tfoot>
+                                {/* {console.log(this.props.checkOut)} */}
                             </table>
                         </div>
                     </div>

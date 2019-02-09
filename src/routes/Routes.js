@@ -6,7 +6,7 @@ import Home from '../page/Home/Home'
 // import Sign from '../page/Sign/Signin'
 import Signup from '../page/Signup/Signup'
 import Details from '../page/Shoping/Shopingdetail'
-import Cart from '../page/Shoping/Cart'
+// import Cart from '../page/Shoping/Cart'
 import { Route, Switch } from 'react-router-dom'
 export default class Routes extends Component {
     render() {
@@ -22,7 +22,7 @@ export default class Routes extends Component {
                     /> */}
                     <Route path='/details/:detail' component={Details} />
                     {/* <Route path='/details/:detail' render={(props) => <Details {...props} />} /> */}
-                    <Route path='/carts/:cart' component={Cart} />
+                    {/* <Route path='/checkout' component={Cart} /> */}
                     <Route path='/contact' component={Contact} />
                     <Route path='/about' component={About} />
                     {/* <Route path='/sign' component={Sign} /> */}

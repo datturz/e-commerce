@@ -1,0 +1,21 @@
+
+
+
+img .item{
+  max-height:250px;
+  max-width: auto; 
+}
+
+
+@media screen and (max-width: 600px) {
+  img .item{
+    max-height:250px;
+    max-width: auto; 
+  }
+}
+@media screen and (max-width: 600px) {
+  img .item{
+    max-height:250px;
+    max-width: auto; 
+  }
+}

@@ -15,20 +15,17 @@ export default class Sigin extends Component {
             nampungData: []
         }
     }
-    // componentWillMount() {
-    //     // if (localStorage.getItem('dataToken')) {
-    //     //     this.setState({
-    //     //         email: JSON.parse(localStorage.getItem('dataToken')).email,
-    //     //         password: JSON.parse(localStorage.getItem('dataToken')).password,
-    //     //         cobaLogin: true
-    //     //     })
-    //     // } else {
-    //     //     console.log('Anda Belum Login')
-    //     // }
-
-    // }
-
-
+    componentWillMount() {
+        if (localStorage.getItem('dataToken')) {
+            this.setState({
+                email: JSON.parse(localStorage.getItem('dataToken')).email,
+                password: JSON.parse(localStorage.getItem('dataToken')).password,
+                cobaLogin: true
+            })
+        } else {
+            console.log('Anda Belum Login')
+        }
+    }
     login = () => {
         let dataToken = { email: this.state.email, password: this.state.password }
         localStorage.setItem('dataToken', JSON.stringify(dataToken))
@@ -48,17 +45,21 @@ export default class Sigin extends Component {
                         }, 2000);
                     })
                 } else if (x.data.code === 200) {
+                    console.log(x.data.results)
+                    localStorage.setItem("id_user", JSON.stringify(x.data.results[0]));
                     this.setState({
                         show: true,
                         message: "Login Succes",
                         nampungData: x.data.results
                     }, function () {
+
                         setTimeout(() => {
                             this.setState({
                                 show: false,
                                 message: ''
                             });
                             this.props.history.push('/')
+                            this.props.getLogin(this.state.nampungData)
                         }, 2000);
                     })
                 } else {
@@ -79,9 +80,8 @@ export default class Sigin extends Component {
             .catch(err => {
                 console.log(err)
             })
-        this.props.masuk(this.state.nampungData)
-        // this.props.history.push('/')
     }
+
     logout = () => {
         localStorage.removeItem('dataToken')
     }
@@ -89,7 +89,7 @@ export default class Sigin extends Component {
 
         return (
             <React.Fragment>
-                {/* {console.log(this.state.nampungData)} */}
+                {console.log(this.state.nampungData)}
                 <div className="container login">
                     <div className="row">
                         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -113,7 +113,6 @@ export default class Sigin extends Component {
                                         <label>Email</label>
                                         <div className="form-label-group">
                                             <input type="email" id="email"
-
                                                 onChange={e => {
                                                     this.setState({
                                                         email: e.target.value
@@ -123,10 +122,9 @@ export default class Sigin extends Component {
                                                 name="email"
                                                 className="form-control col-form-label-lg" placeholder="Email address" required autoFocus />
                                         </div>
-
+                                        <label htmlFor="password">Password</label>
                                         <div className="form-label-group">
                                             <input type="password" id="password"
-
                                                 onChange={e => {
                                                     this.setState({
                                                         password: e.target.value
@@ -135,7 +133,7 @@ export default class Sigin extends Component {
                                                 ref="password"
                                                 name="password"
                                                 className="form-control col-form-label-lg" placeholder="Password" required />
-                                            <label htmlFor="password">Password</label>
+
                                         </div>
 
                                         <div className="custom-control custom-checkbox mb-3">

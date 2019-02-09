@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Cart from './Carts';
-class ModalCart extends Component {
+export default class ModalCart extends Component {
+
     render() {
         return (
             <div className="modal fade bd-example-modal-lg" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
                 <div className="modal-dialog modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -16,7 +18,7 @@ class ModalCart extends Component {
                             <Cart
                                 cart={this.props.thecart}
                                 onRemoves={this.props.onRemoves}
-                                checkiOut={this.props.checkiOut}
+                                // checkOut={this.props.checkOut}
                                 tot={this.props.total}
                             />
                         </div>
@@ -26,5 +28,3 @@ class ModalCart extends Component {
         );
     }
 }
-
-export default ModalCart;

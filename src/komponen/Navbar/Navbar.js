@@ -4,11 +4,31 @@ import { Link } from 'react-router-dom'
 
 import './Navbar.css'
 export default class Navbar extends Component {
+    constructor() {
+        super()
+        this.state = {
+            isLogIn: false
+        }
+    }
+    componentDidMount() {
+        if (localStorage.getItem('id_user')) {
+            this.setState({
+                isLogIn: true
+            })
+        } else if (localStorage.getItem('id_user')) (
+            this.setState({
+                isLogIn: false
+            })
+        )
+    }
+
     render() {
+        var abc = JSON.parse(localStorage.getItem('id_user'))
         return (
+
             <React.Fragment>
-                {/* {console.log(this.state.data)} */}
-                <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+                < nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light" >
                     <div className="container">
                         <Link className="navbar-brand" to="kosong"><img src="./assets/img/logobeard.png" style={{ maxWidth: '100px' }} alt="logo" /></Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,13 +50,17 @@ export default class Navbar extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/contact">Contact</Link>
                                 </li>
+
                                 <li className="nav-item">
-                                    {console.log(this.props.userOn)}
-                                    {this.props.userOn ?
+                                    {console.log(localStorage.getItem('id_user'))}
+                                    {this.state.isLogIn ?
+                                        <Link to="/sign" className="btn btn-outline-primary" disabled>
+                                            {abc.firstname} <i className="fas fa-sign-in-alt"></i>
+                                        </Link>
+                                        :
                                         <Link to="/sign" className="btn btn-outline-primary">
                                             <i className="fas fa-sign-in-alt"></i>
                                             <span>Login</span></Link>
-                                        : this.props.userOn
                                     }
                                 </li>
 
@@ -52,12 +76,12 @@ export default class Navbar extends Component {
                                     </span>
                                 </span></button>
 
-                        </div>
-                    </div>
+                        </div >
+                    </div >
 
-                </nav>
+                </nav >
 
-            </React.Fragment>
+            </React.Fragment >
 
         )
     }

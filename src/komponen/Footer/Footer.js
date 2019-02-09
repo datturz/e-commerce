@@ -4,7 +4,7 @@ export default class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <footer className="footer " style={{ marginTop: '-33px' }}>
+        <footer className="footer ">
           <footer className="container py-5">
             <div className="row">
               <div className="col-12 col-md">

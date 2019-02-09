@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import './Card.css'
 import { Link } from 'react-router-dom'
 export default class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            buttonText: "ADD TO CART",
+            buttonText: "Cart",
             popUp: '',
         }
         this.handleClick = this.handleClick.bind(this)
@@ -16,7 +17,7 @@ export default class Card extends Component {
         }, function () {
             setTimeout(() => {
                 this.setState({
-                    buttonText: "ADD TO CART",
+                    buttonText: "Cart",
                     popUp: ''
                 });
             }, 2000);
@@ -28,19 +29,20 @@ export default class Card extends Component {
         return (
             <React.Fragment>
                 <div className="col-12 col-md-6 col-lg-4"  >
-                    <div className="card"  >
+                    <div className="card" >
                         {this.state.popUp ?
                             <div className="alert alert-primary" role="alert">
                                 {this.state.popUp}
                             </div> :
                             ''
                         }
-
-                        <img className="card-img-top" src={`/assets/img/${this.props.gambar}`} alt="Card " style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                        <div className="item">
+                            <img className="card-img-top item" src={`/assets/img/${this.props.gambar}`} alt="Card " />
+                        </div>
                         <div className="card-body">
                             <h4 className="card-title"><a href="product.html" title="View Product">{this.props.name}</a></h4>
                             <p className="card-text">{this.props.deskrip}</p>
-                            <div className="input-group input-group-sm mb-3 ">
+                            <div className="input-group input-group-sm mb-3" style={{ justifyContent: 'center' }}>
                                 <div className="input-group-prepend">
                                     <span className="decrement" onClick={this.props.kurang}>-</span>
                                 </div>
@@ -51,7 +53,7 @@ export default class Card extends Component {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <Link to={'/details/' + this.props.id} className="btn btn-danger btn-block"><i className="fas">Rp.</i> {this.props.harga} </Link>
+                                    <i className="fas">Rp.</i> {this.props.harga}
                                     <br />
                                 </div>
 
@@ -63,6 +65,7 @@ export default class Card extends Component {
                     </div>
 
                 </div>
+
             </React.Fragment>
         )
     }
